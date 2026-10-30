@@ -234,9 +234,9 @@ def banner():
     hl = {(x, y) for (x, y) in text_cells(name, tx, ty, 3) if (x, y-1) not in text_cells(name, tx, ty, 3)}
     b.append(path(hl, "#ffb3e0"))
 
-    b.append(path(text_cells("ENGENHEIRA DE IA GENERATIVA", 12, 74), CYAN))
-    b.append(path(text_cells("> AGENTES / RAG / VLMS / RCA", 12, 85), GREEN))
-    b.append(f'<rect class="cur" x="{12 + text_w("> AGENTES / RAG / VLMS / RCA") + 2}" y="85" width="5" height="7" fill="{GREEN}"/>')
+    b.append(path(text_cells("DEV QUE SE APAIXONOU POR IA", 12, 74), CYAN))
+    b.append(path(text_cells("> WEB / PYTHON / AGENTES / RAG", 12, 85), GREEN))
+    b.append(f'<rect class="cur" x="{12 + text_w("> WEB / PYTHON / AGENTES / RAG") + 2}" y="85" width="5" height="7" fill="{GREEN}"/>')
 
     style = (
         "@keyframes tw{0%,100%{opacity:1}50%{opacity:.15}}"
@@ -252,26 +252,26 @@ def banner():
         ".wa{animation:fk 2.7s steps(4) infinite}.wb{animation:fk 3.9s steps(4) infinite -1.3s}"
         "@media (prefers-reduced-motion:reduce){*{animation:none!important}}"
     )
-    return svg(W, H, 4, "".join(b), style, "Catarina Costa - Engenheira de IA Generativa")
+    return svg(W, H, 4, "".join(b), style, "Catarina Costa - dev que se apaixonou por IA")
 
 # =====================================================================
 # 2) FICHA DE PERSONAGEM (RPG)
 # =====================================================================
 SHEET = [
-    ("CLASSE", "ENG. IA GENERATIVA", PINK),
+    ("CLASSE", "DEV + IA GENERATIVA", PINK),
     ("GUILDA", "IBM BRASIL", CYAN),
     ("BASE", "CAMPINAS - SP", FG),
     ("ESCOLA", "FIAP / ADS 2026", FG),
     ("ESPECIAL", "ACHAR A CAUSA RAIZ", YELLOW),
 ]
 SKILLS = [  # nome, nível 0-10, cor
+    ("HTML / CSS / JS", 7, ORANGE),
+    ("PYTHON", 8, GREEN),
+    ("SQL / PL-SQL", 6, CYAN),
     ("AGENTES DE IA", 8, PINK),
-    ("RAG / CHUNKING", 8, PURPLE),
+    ("RAG / PROMPTS", 8, PURPLE),
     ("RCA POR TRACES", 9, RED),
-    ("PROMPT ENG.", 8, ORANGE),
     ("VLM / OCR", 7, YELLOW),
-    ("PYTHON", 7, GREEN),
-    ("FASTAPI / PYDANTIC", 6, CYAN),
 ]
 def sheet():
     W, H = 280, 172
@@ -374,13 +374,80 @@ def footer():
     return svg(W, H, 3, "".join(b), style, "Game saved")
 
 
+# =====================================================================
+# 4) WORLD MAP: a jornada dev -> IA
+# =====================================================================
+WORLDS = [  # (rótulo no bloco, título, linha 2, linha 3, cor, estado)
+    ("1", "WEB",     "HTML CSS", "JS",      ORANGE, "CLEAR"),
+    ("2", "BACKEND", "PYTHON",   "SQL",     CYAN,   "CLEAR"),
+    ("3", "DADOS",   "3X IBM",   "2025",    GREEN,  "CLEAR"),
+    ("4", "IA GEN",  "IBM",      "2026",    PINK,   "AGORA"),
+    ("?", "PROXIMA", "FASE",     "...",     CUR,    ""),
+]
+def worldmap():
+    W, H = 280, 96
+    b = [f'<rect width="{W}" height="{H}" fill="{BG0}"/>']
+    x, y, w, h = 4, 6, 272, 86
+    b.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{BG2}"/>')
+    border = {(x+i, y) for i in range(w)} | {(x+i, y+h-1) for i in range(w)} \
+           | {(x, y+j) for j in range(h)} | {(x+w-1, y+j) for j in range(h)}
+    inner = {(x+i, y+2) for i in range(2, w-2)} | {(x+i, y+h-3) for i in range(2, w-2)} \
+          | {(x+2, y+j) for j in range(2, h-2)} | {(x+w-3, y+j) for j in range(2, h-2)}
+    b.append(path(border, PURPLE)); b.append(path(inner, CUR))
+    title = "MINHA JORNADA"
+    b.append(f'<rect x="{x+6}" y="{y-3}" width="{text_w(title)+4}" height="9" fill="{BG0}"/>')
+    b.append(path(text_cells(title, x+8, y-2), PURPLE))
+
+    xs = [34, 86, 138, 190, 244]
+    ys = [40, 33, 41, 33, 40]
+    # trilha pontilhada entre as fases (colorida até a fase atual)
+    for i in range(len(xs)-1):
+        x0, y0, x1, y1 = xs[i], ys[i], xs[i+1], ys[i+1]
+        n = int(max(abs(x1-x0), abs(y1-y0)))
+        dots = set()
+        for k in range(10, n-9, 4):
+            t = k / n
+            px, py = round(x0 + (x1-x0)*t), round(y0 + (y1-y0)*t)
+            dots |= {(px, py), (px+1, py), (px, py+1), (px+1, py+1)}
+        col = WORLDS[i+1][4] if WORLDS[i+1][5] else CUR
+        cls = ' class="nx"' if not WORLDS[i+1][5] else ""
+        b.append(f'<g{cls}>{path(dots, col)}</g>')
+    for (lab, t1, t2, t3, col, st), cx, cy in zip(WORLDS, xs, ys):
+        s = 15; x0, y0 = cx - 7, cy - 7
+        blk = {(x0+i, y0+j) for i in range(s) for j in range(s)}
+        blk -= {(x0, y0), (x0+s-1, y0), (x0, y0+s-1), (x0+s-1, y0+s-1)}
+        sh = {(px+1, py+1) for (px, py) in blk}
+        b.append(path(sh - blk, "#0e0f13"))
+        g = path(blk, col)
+        g += path({(px, py) for (px, py) in blk if py == y0+1 or px == x0+1}, "#ffffff", 'opacity=".35"')
+        g += path({(px, py) for (px, py) in blk if py == y0+s-2 or px == x0+s-2}, "#000000", 'opacity=".3"')
+        g += path(text_cells(lab, cx - 2, cy - 3), BG0 if st else FG)
+        if st == "AGORA":
+            ring = {(x0-2+i, y0-2) for i in range(s+4)} | {(x0-2+i, y0+s+1) for i in range(s+4)} \
+                 | {(x0-2, y0-2+j) for j in range(s+4)} | {(x0+s+1, y0-2+j) for j in range(s+4)}
+            g += f'<g class="pulse">{path(ring, col)}</g>'
+        cls = ' class="nx"' if not st else ""
+        b.append(f'<g{cls}>{g}</g>')
+        if st:
+            tag = f'<g class="bl">' if st == "AGORA" else "<g>"
+            b.append(tag + path(text_cells(st, cx - text_w(st)//2, cy - 19), GREEN if st == "CLEAR" else col) + "</g>")
+        for k, (txt, c) in enumerate([(t1, col if st else COM), (t2, FG if st else COM), (t3, COM)]):
+            b.append(path(text_cells(txt, cx - text_w(txt)//2, 56 + k*9), c))
+    style = ("@keyframes bl{0%,59%{opacity:1}60%,100%{opacity:0}}.bl{animation:bl 1s infinite}"
+             "@keyframes pu{0%,100%{opacity:1}50%{opacity:.2}}.pulse{animation:pu 1.2s steps(3) infinite}"
+             "@keyframes nx{0%,100%{opacity:.35}50%{opacity:1}}.nx{animation:nx 2.4s steps(4) infinite}"
+             "@media (prefers-reduced-motion:reduce){*{animation:none!important}}")
+    return svg(W, H, 3, "".join(b), style, "Minha jornada: web, backend, dados, IA generativa")
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     files = {
         "banner.svg": banner(),
         "status.svg": sheet(),
         "footer.svg": footer(),
-        "div-quest.svg": divider("QUEST ATUAL", PINK),
+        "worldmap.svg": worldmap(),
+        "div-origem.svg": divider("ORIGIN STORY", ORANGE),
         "div-boss.svg": divider("BOSS FIGHTS", RED),
         "div-inv.svg": divider("INVENTARIO", YELLOW),
         "div-save.svg": divider("SAVE FILES", PURPLE),

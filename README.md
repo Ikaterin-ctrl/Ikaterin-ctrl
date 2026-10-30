@@ -1,15 +1,16 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Catarina Costa — Engenheira de IA Generativa" width="100%"/>
+<img src="assets/banner.svg" alt="Catarina Costa — dev que se apaixonou por IA" width="100%"/>
 
 </div>
 
 <br/>
 
+Comecei como **dev**: sites, landing pages, sistemas com banco de dados, um projeto atrás do outro.
+No meio do caminho esbarrei em **IA** e me apaixonei. Hoje junto as duas coisas como dev de **IA Generativa** na consultoria de tecnologia da **IBM Brasil**: construo agentes, os pipelines que alimentam as bases de conhecimento deles e, quando algo quebra em produção, abro os traces e sigo o rastro até a causa raiz.
+
 > Meu momento favorito no trabalho é quando algo que **"funciona"** não deveria estar funcionando.
 > Uma vez achei um teste que passava só por acaso — e foi aí que entendi que o que eu gosto mesmo é de descobrir **o porquê** das coisas. 🦇
-
-Sou dev de **IA Generativa** na consultoria de tecnologia da **IBM Brasil**. Construo agentes, alimento bases de conhecimento e, quando algo quebra em produção, abro os traces e sigo o rastro até a causa raiz.
 
 <div align="center">
 <img src="assets/status.svg" alt="Ficha de personagem: status e skills" width="100%"/>
@@ -17,15 +18,13 @@ Sou dev de **IA Generativa** na consultoria de tecnologia da **IBM Brasil**. Con
 
 <br/>
 
-<img src="assets/div-quest.svg" alt="Quest atual" width="100%"/>
+<img src="assets/div-origem.svg" alt="Origin story" width="100%"/>
 
-```diff
-+ [EM ANDAMENTO]  Agente multiagente em produção (roteador + especialistas) com RAG
-+                 └─ pipeline de ingestão: SharePoint → chunking semântico → bases de conhecimento
-+                 └─ sustentação: reproduzir → comparar traces → corrigir → retestar em homologação
-! [SIDE QUEST]    MindED — IA pra quem aprende de um jeito diferente
-- [CONCLUÍDA]     PoC de visão computacional: OCR clássico × VLMs → aprovada pelo cliente
-```
+<div align="center">
+<img src="assets/worldmap.svg" alt="Minha jornada: web, backend, dados, IA generativa" width="100%"/>
+</div>
+
+A base de dev é o que me faz diferente na IA: eu não só escrevo prompts — eu construo o pipeline, o backend e a automação em volta deles.
 
 <img src="assets/div-boss.svg" alt="Boss fights" width="100%"/>
 
@@ -42,21 +41,26 @@ Bugs de LLM em produção não aparecem no stack trace. Alguns que já derrotei:
 
 <div align="center">
 
-**🗡️ armas principais**<br/>
+**⚔️ dev**<br/>
 <img src="https://img.shields.io/badge/Python-282a36?style=for-the-badge&logo=python&logoColor=50fa7b"/>
-<img src="https://img.shields.io/badge/Agentes_de_IA-282a36?style=for-the-badge&logo=probot&logoColor=ff79c6"/>
-<img src="https://img.shields.io/badge/RAG-282a36?style=for-the-badge&logo=databricks&logoColor=bd93f9"/>
-<img src="https://img.shields.io/badge/VLMs_%2F_OCR-282a36?style=for-the-badge&logo=opencv&logoColor=f1fa8c"/>
-<img src="https://img.shields.io/badge/Prompt_Engineering-282a36?style=for-the-badge&logo=openai&logoColor=ffb86c"/>
-
-**🛡️ equipamento**<br/>
+<img src="https://img.shields.io/badge/JavaScript-282a36?style=for-the-badge&logo=javascript&logoColor=f1fa8c"/>
+<img src="https://img.shields.io/badge/HTML5-282a36?style=for-the-badge&logo=html5&logoColor=ffb86c"/>
+<img src="https://img.shields.io/badge/CSS3-282a36?style=for-the-badge&logo=css&logoColor=bd93f9"/>
 <img src="https://img.shields.io/badge/FastAPI-282a36?style=for-the-badge&logo=fastapi&logoColor=8be9fd"/>
 <img src="https://img.shields.io/badge/Pydantic_v2-282a36?style=for-the-badge&logo=pydantic&logoColor=ff79c6"/>
-<img src="https://img.shields.io/badge/IBM_watsonx-282a36?style=for-the-badge&logo=ibm&logoColor=8be9fd"/>
-<img src="https://img.shields.io/badge/Jupyter-282a36?style=for-the-badge&logo=jupyter&logoColor=ffb86c"/>
-<img src="https://img.shields.io/badge/YAML-282a36?style=for-the-badge&logo=yaml&logoColor=ff5555"/>
+<img src="https://img.shields.io/badge/SQL_%2F_PL--SQL-282a36?style=for-the-badge&logo=databricks&logoColor=ff5555"/>
+<img src="https://img.shields.io/badge/Firebase-282a36?style=for-the-badge&logo=firebase&logoColor=ffb86c"/>
 <img src="https://img.shields.io/badge/Git-282a36?style=for-the-badge&logo=git&logoColor=ff5555"/>
 <img src="https://img.shields.io/badge/Postman-282a36?style=for-the-badge&logo=postman&logoColor=ffb86c"/>
+
+**🔮 magia (IA)**<br/>
+<img src="https://img.shields.io/badge/Agentes_de_IA-282a36?style=for-the-badge&logo=probot&logoColor=ff79c6"/>
+<img src="https://img.shields.io/badge/RAG-282a36?style=for-the-badge&logo=elasticsearch&logoColor=bd93f9"/>
+<img src="https://img.shields.io/badge/VLMs_%2F_OCR-282a36?style=for-the-badge&logo=opencv&logoColor=f1fa8c"/>
+<img src="https://img.shields.io/badge/Prompt_Engineering-282a36?style=for-the-badge&logo=googlegemini&logoColor=ffb86c"/>
+<img src="https://img.shields.io/badge/IBM_watsonx-282a36?style=for-the-badge&logo=ibmcloud&logoColor=8be9fd"/>
+<img src="https://img.shields.io/badge/Jupyter-282a36?style=for-the-badge&logo=jupyter&logoColor=ffb86c"/>
+<img src="https://img.shields.io/badge/YAML-282a36?style=for-the-badge&logo=yaml&logoColor=ff5555"/>
 
 **💎 itens raros**<br/>
 <img src="https://img.shields.io/badge/IBM-AI_Associate_Data_Scientist-bd93f9?style=flat-square&labelColor=282a36"/>
@@ -102,9 +106,9 @@ Sou neurodivergente e passei boa parte da escola tentando aprender num sistema q
 
 <div align="center">
 
-Bora conversar sobre **agentes em produção**, **qualidade de RAG** ou **IA que deixa o aprendizado mais acessível**.
+Bora conversar sobre **dev**, **agentes em produção**, **qualidade de RAG** ou **IA que deixa o aprendizado mais acessível**.
 
-<a href="https://www.linkedin.com/in/catarina-costa-774950350"><img src="https://img.shields.io/badge/LinkedIn-282a36?style=for-the-badge&logo=linkedin&logoColor=8be9fd"/></a>
+<a href="https://www.linkedin.com/in/catarina-costa-774950350"><img src="https://img.shields.io/badge/LinkedIn-282a36?style=for-the-badge&logo=gitconnected&logoColor=8be9fd"/></a>
 <a href="mailto:catarinacostaandradecom@gmail.com"><img src="https://img.shields.io/badge/E--mail-282a36?style=for-the-badge&logo=gmail&logoColor=ff79c6"/></a>
 
 <br/><br/>
